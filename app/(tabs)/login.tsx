@@ -6,4 +6,4 @@ export default function LoginScreen () {
       <Text>Hello this is login screen</Text>
     </View>
   )
-}
+}  
