@@ -1,32 +1,46 @@
-import { Stack, useRouter } from "expo-router";
+import { AuthProvide, useAuth } from "@/lib/auth-context";
+import { Stack, useRouter, useSegments } from "expo-router";
 import React, { useEffect } from "react";
 
 
 function RouteGuard({children}:{children:React.ReactNode}){
-  const isAuth = false;
-  const router = useRouter()
+  
+  const router = useRouter();
+  const {user,isLoadingUser} = useAuth();
+
+  const segments = useSegments();
 
   useEffect(()=> {
-    if(!isAuth){
+    const isAuthGroup = segments[0] === "auth"
+    if(!user && !isAuthGroup && !isLoadingUser){
       router.replace("/auth");
+    }else if(user && isAuthGroup && !isLoadingUser){
+      router.replace("/")
     }
-  });
+  }, [user,segments]);
 
   return <>{children}</>;  
 
 }
 export default function RootLayout() {
   return (
+    <AuthProvide>
     <RouteGuard>
     <Stack>
       <Stack.Screen name = "(tabs)" options={{headerShown : false}}/>
     </Stack>
     </RouteGuard>
+    </AuthProvide>
   );
 }
 
+// import { AuthProvide } from "@/lib/auth-context";
 // import { Slot } from "expo-router";
 
 // export default function RootLayout() {
-//   return <Slot />;
+//   return (
+//     <AuthProvide>
+//       <Slot />
+//     </AuthProvide>
+//   );
 // }
