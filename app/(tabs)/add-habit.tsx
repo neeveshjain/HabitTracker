@@ -19,9 +19,9 @@ import {
 import Toast from "react-native-toast-message";
 
 const frequencies = ["daily", "weekly", "monthly"];
-const theme = useTheme();
 type frequency = (typeof frequencies)[number];
 export default function addhabitScreen() {
+  const theme = useTheme();
   const [title, setTitle] = useState<string>("");
   const [description, setDesciption] = useState<string>("");
   const [frequency, setFrequency] = useState<frequency>("daily");
@@ -49,7 +49,6 @@ export default function addhabitScreen() {
         type: "success",
         text1: "Habit added ✅",
       });
-
       router.back();
     } catch (error) {
       if (error instanceof Error) {
