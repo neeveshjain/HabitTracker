@@ -2,7 +2,7 @@ import { AuthProvide, useAuth } from "@/lib/auth-context";
 import { Stack, useRouter, useSegments } from "expo-router";
 import React, { useEffect } from "react";
 import { SafeAreaProvider } from "react-native-safe-area-context";
-
+import Toast from "react-native-toast-message";
 function RouteGuard({ children }: { children: React.ReactNode }) {
   const router = useRouter();
   const { user, isLoadingUser } = useAuth();
@@ -30,6 +30,7 @@ export default function RootLayout() {
               <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
             </Stack>
           </RouteGuard>
+          <Toast/>
         </SafeAreaProvider>
       {/* </PaperProvider> */}
     </AuthProvide>

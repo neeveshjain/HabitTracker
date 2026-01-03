@@ -9,7 +9,14 @@ import {
   View,
 } from "react-native";
 import { ID } from "react-native-appwrite";
-import { Button, SegmentedButtons, Text, TextInput, useTheme } from "react-native-paper";
+import {
+  Button,
+  SegmentedButtons,
+  Text,
+  TextInput,
+  useTheme,
+} from "react-native-paper";
+import Toast from "react-native-toast-message";
 
 const frequencies = ["daily", "weekly", "monthly"];
 const theme = useTheme();
@@ -38,6 +45,10 @@ export default function addhabitScreen() {
           created_at: new Date().toISOString(),
         }
       );
+      Toast.show({
+        type: "success",
+        text1: "Habit added ✅",
+      });
 
       router.back();
     } catch (error) {
@@ -82,13 +93,7 @@ export default function addhabitScreen() {
         >
           Add Habit
         </Button>
-        {
-          error && (
-            <Text style={{color:theme.colors.error}}>
-              {error}
-            </Text>
-          )
-        }
+        {error && <Text style={{ color: theme.colors.error }}>{error}</Text>}
       </View>
     </TouchableWithoutFeedback>
   );
