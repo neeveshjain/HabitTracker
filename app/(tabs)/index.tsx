@@ -58,7 +58,8 @@ export default function Index() {
             )
           ) {
             fetchHabitsToday();
-          }{
+          }
+          {
             fetchHabitsToday();
           }
         }
@@ -86,7 +87,6 @@ export default function Index() {
       console.log(error);
     }
   };
-
 
   const fetchHabitsToday = async () => {
     try {
@@ -141,6 +141,8 @@ export default function Index() {
       console.error(error);
     }
   };
+  const ishabitCompleted = (habitId: string) =>
+    completedhabits?.includes(habitId);
 
   const renderLeftActions = () => {
     return (
@@ -154,14 +156,18 @@ export default function Index() {
     );
   };
 
-  const renderRightActions = () => {
+  const renderRightActions = (habitid: string) => {
     return (
       <View style={styles.swipeActionRight}>
-        <MaterialCommunityIcons
-          name="check-circle-outline"
-          size={32}
-          color={"#fff"}
-        ></MaterialCommunityIcons>
+        {ishabitCompleted(habitid) ? (
+          <Text style={{ color: "#fff" }}> Completed!</Text>
+        ) : (
+          <MaterialCommunityIcons
+            name="check-circle-outline"
+            size={32}
+            color={"#fff"}
+          ></MaterialCommunityIcons>
+        )}
       </View>
     );
   };
@@ -192,17 +198,23 @@ export default function Index() {
               overshootLeft={false}
               overshootRight={true}
               renderLeftActions={renderLeftActions}
-              renderRightActions={renderRightActions}
+              renderRightActions={() => renderRightActions(habit.$id)}
               onSwipeableOpen={(direction) => {
                 if (direction === "left") {
                   handleDeleteHabit(habit.$id);
-                } else if (direction === 'right'){
-                  handleCompleteHabit(habit.$id)
+                } else if (direction === "right") {
+                  handleCompleteHabit(habit.$id);
                 }
                 SwipeableRefs.current[habit.$id]?.close();
               }}
             >
-              <Surface style={styles.card} elevation={0}>
+              <Surface
+                style={[
+                  styles.card,
+                  ishabitCompleted(habit.$id) && styles.cardCompleted,
+                ]}
+                elevation={0}
+              >
                 <View key={key} style={styles.cardContent}>
                   <Text style={styles.cardTitle}> {habit.title}</Text>
                   <Text style={styles.cardDescription}>
@@ -333,5 +345,8 @@ const styles = StyleSheet.create({
     marginBottom: 18,
     marginTop: 2,
     paddingRight: 16,
+  },
+  cardCompleted: {
+    opacity: 0.6,
   },
 });
