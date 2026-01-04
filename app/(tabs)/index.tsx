@@ -75,9 +75,9 @@ export default function Index() {
 
   const renderLeftActions = () => {
     return (
-      <View style={styles.swipeActionRight}>
+      <View style={styles.swipeActionLeft}>
         <MaterialCommunityIcons
-          name="check-circle-outline"
+          name="trash-can-outline"
           size={32}
           color={"#fff"}
         ></MaterialCommunityIcons>
@@ -87,9 +87,9 @@ export default function Index() {
 
   const renderRightActions = () => {
     return (
-      <View style={styles.swipeActionLeft}>
+      <View style={styles.swipeActionRight}>
         <MaterialCommunityIcons
-          name="trash-can-outline"
+          name="check-circle-outline"
           size={32}
           color={"#fff"}
         ></MaterialCommunityIcons>
@@ -243,7 +243,7 @@ const styles = StyleSheet.create({
   emptyStateText: {
     color: "#666666",
   },
-  swipeActionRight: {
+  swipeActionLeft: {
     justifyContent: "center",
     alignItems: "flex-start",
     flex: 1,
@@ -253,7 +253,7 @@ const styles = StyleSheet.create({
     marginTop: 2,
     paddingLeft: 16,
   },
-  swipeActionLeft: {
+  swipeActionRight: {
     backgroundColor: "#4caf50",
     justifyContent: "center",
     alignItems: "flex-end",
