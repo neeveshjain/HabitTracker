@@ -7,7 +7,7 @@ import {
   RealtimeResponse,
 } from "@/lib/appwrite";
 import { useAuth } from "@/lib/auth-context";
-import { Habit, HabitCompletion } from "@/Types/Database.Type";
+import { Habit, HabitCompletion } from "@/Types/database.type";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { useEffect, useRef, useState } from "react";
 import { ScrollView, StyleSheet, View } from "react-native";
@@ -57,9 +57,6 @@ export default function Index() {
               "databases.*.collections.*.documents.*.create"
             )
           ) {
-            fetchHabitsToday();
-          }
-          {
             fetchHabitsToday();
           }
         }
