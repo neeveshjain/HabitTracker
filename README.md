@@ -1,50 +1,73 @@
-# Welcome to your Expo app 👋
+# 📱 HabitTracker
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A simple, modern **Habit Tracking mobile app** built with **React Native (Expo)** that helps users build consistency, track streaks, and stay motivated.
 
-## Get started
+---
 
-1. Install dependencies
+## ✨ Features
 
-   ```bash
-   npm install
-   ```
+- ✅ Create and manage daily habits
+- 🔥 Track **current streak** and **best streak**
+- 🏆 View **Top Streaks ranking**
+- 📊 Habit completion history
+- 💾 Persistent local storage (data saved even after app restart)
+- ⚡ Fast and smooth UI with Expo
+- 🎨 Clean, minimal design
 
-2. Start the app
+---
 
-   ```bash
-   npx expo start
-   ```
+## 🛠️ Tech Stack
 
-In the output, you'll find options to open the app in a
+- **React Native**
+- **Expo**
+- **TypeScript**
+- **Expo Router**
+- **AsyncStorage** (for persistence)
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+---
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## 📂 Project Structure
 
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
+```
+HabitTracker/
+├── app/ # App routes & screens
+├── components/ # Reusable UI components
+├── assets/ # Images & icons
+├── lib/ # Utility functions & helpers
+├── constants/ # App constants & styles
+├── package.json
+└── tsconfig.json
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+---
 
-## Learn more
+## 🚀 Getting Started
 
-To learn more about developing your project with Expo, look at the following resources:
+### 1️⃣ Clone the repository
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+```bash
+git clone https://github.com/neeveshjain/HabitTracker.git
+cd HabitTracker
+```
 
-## Join the community
+### 2️⃣ Install dependencies
 
-Join our community of developers creating universal apps.
+```bash
+npm install
+```
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+Or
+
+```bash
+yarn install
+```
+
+### 3️⃣ Start the app
+
+```bash
+npx expo start
+```
+
+Then:
+- Scan the QR code using Expo Go (Android / iOS)
+- Or run on an emulator
